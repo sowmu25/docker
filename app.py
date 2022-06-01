@@ -22,15 +22,21 @@ st.write("Chrome Review Vs Rating")
 #df = pd.read_csv(data_file.name)
 #st.dataframe(df)
 
-def clean_text(a):
-    text=re.sub('[^A-za-z0-9]',' ',a)
-    text=text.lower()
-    text=text.split(' ')
-    text = [wordnet.lemmatize(word) for word in text if word not in (stopwords.words('english'))]
-    text = ' '.join(text)
-    return text
+input_file = st.file_uploader("Upload a CSV File",type=['csv'])
+if (input_file is not None) and input_file.name.endswith(".csv"):
+    test = pd.read_csv(input_file, encoding = 'ISO-8859-1')
+    st.write("sooper")
 
-data_file = st.file_uploader("Upload CSV",type=["csv"])
+
+#def clean_text(a):
+ #   text=re.sub('[^A-za-z0-9]',' ',a)
+  #  text=text.lower()
+   # text=text.split(' ')
+    #text = [wordnet.lemmatize(word) for word in text if word not in (stopwords.words('english'))]
+    #text = ' '.join(text)
+    #return text
+
+"""data_file = st.file_uploader("Upload CSV",type=["csv"])
 if data_file is not None:
     #file_details = {"filename":data_file.name, "filetype":data_file.type,"filesize":data_file.size}
     st.write(file_details)
@@ -48,4 +54,4 @@ if data_file is not None:
     new=test['ID'].isin(filter['ID'])
     st.write(test[new])
 else:
-    st.write("file not found")
+    st.write("file not found")"""
