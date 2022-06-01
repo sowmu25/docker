@@ -1,4 +1,5 @@
 #import streamlit as st
+!pip install Jinja2
 import streamlit as st
 import pandas as pd
 import nltk
